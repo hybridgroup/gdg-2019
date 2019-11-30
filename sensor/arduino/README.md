@@ -4,21 +4,25 @@
 
     - Arduino Nano33 IoT board
     - Grove IoT Starter Kit parts
-    - Personal computer with Go 1.12+ and TinyGo installed, and a serial port.
+    - Personal computer with Go 1.13+ and TinyGo installed, and a serial port.
 
 ## Installation
 
-### Go 1.12
+### Go 1.13
 
-If somehow you have not installed Go 1.12 on your computer already, you can download it here:
+If somehow you have not installed Go 1.13 on your computer already, you can download it here:
 
 https://golang.org/dl/
 
+Now you are ready to install TinyGo.
+
 ### TinyGo
 
-Follow the instructions here:
+Follow the instructions here for your operating system:
 
 https://tinygo.org/getting-started/
+
+Once you have finished installing TinyGo itself, install the drivers needed for the 
 
 ### TinyGo drivers
 
@@ -60,6 +64,24 @@ On macOS, download the installer from https://github.com/shumatech/BOSSA/release
 
 One you have downloaded it, double click on the .dmg file to perform the installation.
 
+#### Windows
+
+- You must install the "BOSSA" flashing utility first. You can download it from https://github.com/shumatech/BOSSA/releases/download/1.9.1/bossa-x64-1.9.1.msi
+
+- During the installation, you should choose to put it into `c:\Program Files`
+
+- After the installation, you must add it to your PATH:
+
+    ```shell
+    set PATH=%PATH%;"c:\Program Files\BOSSA";
+    ```
+
+- Test that you have installed "BOSSA" correctly by running this command:
+
+    ```shell
+    bossac --help
+    ```
+
 ## Connecting the Arduino to your computer
 
 ![Arduino Nano33 IoT](./images/nano33pinmap.jpg)
@@ -79,8 +101,7 @@ Let's get started!
 ## Code
 
 ### IMPORTANT! macOS-specific required steps (Linux users can ignore)
-The Linux and macOS device subsystems have subtle differences. **In order to talk to the Arduino board on a Mac**, you need to discover how macOS
-system has named it. Plug it in and follow these commands:
+The Linux and macOS device subsystems have subtle differences. **In order to talk to the Arduino board on a Mac**, you need to discover how macOS system has named it. Plug it in and follow these commands:
 
 ```
 ls /dev | grep usb
