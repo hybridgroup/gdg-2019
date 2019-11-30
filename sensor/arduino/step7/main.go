@@ -1,21 +1,15 @@
 package main
 
 import (
-	"image/color"
 	"machine"
 	"math/rand"
-	"strconv"
 	"time"
 
-	"github.com/conejoninja/tinydraw"
-	"github.com/conejoninja/tinyfont"
-
 	// comes from "github.com/conejoninja/tinyfont/freemono"
-	freemono "../fonts"
+
 	"tinygo.org/x/drivers/buzzer"
 	"tinygo.org/x/drivers/espat"
 	"tinygo.org/x/drivers/espat/mqtt"
-	"tinygo.org/x/drivers/ssd1306"
 )
 
 var (
@@ -29,13 +23,11 @@ var (
 
 	adaptor *espat.Device
 	topic   = "tinygo"
-
-	display ssd1306.Device
 )
 
 // access point info. Change this to match your WiFi connection information.
-const ssid = "golab"
-const pass = "gophers2019"
+const ssid = "GDG 2019"
+const pass = "gdgsummit"
 
 // IP address of the MQTT broker to use. Replace with your own info, if so desired.
 const server = "tcp://test.mosquitto.org:1883"
@@ -100,10 +92,6 @@ func main() {
 		failMessage(token.Error().Error())
 	}
 
-	initDisplay()
-
-	go handleDisplay()
-
 	for {
 		dialValue = dial.Get()
 		green.Set(dialValue)
@@ -137,45 +125,6 @@ func main() {
 	cl.Disconnect(100)
 
 	println("Done.")
-}
-
-func initDisplay() {
-	display = ssd1306.NewI2C(machine.I2C0)
-	display.Configure(ssd1306.Config{
-		Address: ssd1306.Address_128_32,
-		Width:   128,
-		Height:  32,
-	})
-
-	display.ClearDisplay()
-}
-
-func handleDisplay() {
-	black := color.RGBA{1, 1, 1, 255}
-
-	for {
-		display.ClearBuffer()
-
-		val := strconv.Itoa(int(dialValue))
-		msg := []byte("dial: " + val) // + x)
-		tinyfont.WriteLine(&display, &freemono.Bold9pt7b, 10, 20, msg, black)
-
-		var radius int16 = 4
-		if buttonPush {
-			tinydraw.FilledCircle(&display, 16+32*0, 32-radius-1, radius, black)
-		} else {
-			tinydraw.Circle(&display, 16+32*0, 32-radius-1, radius, black)
-		}
-		if touchPush {
-			tinydraw.FilledCircle(&display, 16+32*1, 32-radius-1, radius, black)
-		} else {
-			tinydraw.Circle(&display, 16+32*1, 32-radius-1, radius, black)
-		}
-
-		display.Display()
-
-		time.Sleep(100 * time.Millisecond)
-	}
 }
 
 // connect to ESP8266/ESP32

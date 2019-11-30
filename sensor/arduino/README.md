@@ -312,7 +312,7 @@ should also have two empty circles that will light up when you press the
 Button to light up the Blue LED and when you press the touch sensor
 respectively.
 
-### step7.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, OLED, MQTT
+### step7.go - Blue LED, Button, Green LED, Buzzer, Touch, Dial, MQTT
 
 ![Arduino](./images/step6.png)
 
