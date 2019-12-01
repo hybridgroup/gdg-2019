@@ -9,8 +9,8 @@ func main() {
 	blue := machine.D12
 	blue.Configure(machine.PinConfig{Mode: machine.PinOutput})
 
-	red := machine.D10
-	red.Configure(machine.PinConfig{Mode: machine.PinOutput})
+	green := machine.D10
+	green.Configure(machine.PinConfig{Mode: machine.PinOutput})
 
 	button := machine.D11
 	button.Configure(machine.PinConfig{Mode: machine.PinInput})
@@ -18,10 +18,10 @@ func main() {
 	for {
 		if !button.Get() {
 			blue.Low()
-			red.High()
+			green.High()
 		} else {
 			blue.High()
-			red.Low()
+			green.Low()
 		}
 
 		time.Sleep(time.Millisecond * 10)
