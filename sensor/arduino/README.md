@@ -238,7 +238,7 @@ The green LED should light up. When you press the button, the blue LED should tu
 
 - Connect the yellow male end of the Grove cable to pin D9 on the Arduino.
 
-- Plug the Grove speaker into one of the provided cables with the Grove connector on one end, and the male jumpers on the other.
+- Plug the Grove buzzer into one of the provided cables with the Grove connector on one end, and the male jumpers on the other.
 
 - Connect the black male end of the Grove cable to the breadboard's top left set of pins (-).
 
