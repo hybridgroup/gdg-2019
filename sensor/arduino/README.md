@@ -60,7 +60,7 @@ sudo apt install clang-8
 
 #### macOS
 
-On macOS, download the installer from https://github.com/shumatech/BOSSA/releases/download/1.9.1/bossa-1.9.1.dmg
+On macOS, you can install it via `brew cask install bossa` or download the installer from https://github.com/shumatech/BOSSA/releases/download/1.9.1/bossa-1.9.1.dmg
 
 One you have downloaded it, double click on the .dmg file to perform the installation.
 
