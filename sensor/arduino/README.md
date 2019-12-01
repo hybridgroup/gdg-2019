@@ -264,7 +264,7 @@ When you touch the touch sensor, the buzzer should emit a noise.
 
 ![Arduino](./images/step5.png)
 
-- Plug the Grove dial into one of the provided cables with the Grove connector on one end, and the male jumpers on the other.
+- Plug the Grove dial (Rotary Angle Sensor) into one of the provided cables with the Grove connector on one end, and the male jumpers on the other.
 
 - Connect the black male end of the Grove cable to the breadboard's top left set of pins (-).
 
