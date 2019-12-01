@@ -45,7 +45,7 @@ On Linux, install from source:
 
 ```
 sudo apt install \
-  libwxgtk3.0-dev
+  libwxgtk3.0-dev \
   libreadline-dev
 git clone https://github.com/shumatech/BOSSA.git
 cd BOSSA
